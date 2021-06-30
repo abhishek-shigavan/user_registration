@@ -12,16 +12,18 @@ public class UserRegistration {
 	private String f_Name;
 	private String l_Name;
 	private String emailId;
+	private String mob_No;
 	
 	public UserRegistration() {
 		
 	}
 
-	public UserRegistration(String f_Name, String l_Name, String emailId) {
+	public UserRegistration(String f_Name, String l_Name, String emailId, String mob_No) {
 		
 		this.f_Name = f_Name;
 		this.l_Name = l_Name;
 		this.emailId = emailId;
+		this.mob_No = mob_No;
 	}
 
 	public String getF_Name() {
@@ -47,4 +49,13 @@ public class UserRegistration {
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
+
+	public String getMob_No() {
+		return mob_No;
+	}
+
+	public void setMob_No(String mob_No) {
+		this.mob_No = mob_No;
+	}
+	
 }
