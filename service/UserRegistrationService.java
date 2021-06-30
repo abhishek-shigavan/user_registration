@@ -122,8 +122,10 @@ public class UserRegistrationService {
 		boolean flag = false;
 		
 		//password contains minimum 8 character
+		//At least one lower case character
 		//At least one upper case character
-		String regexPattern = "^([a-zA-Z0-9]*)[A-Z]+([a-zA-Z0-9]{7,})$";
+		//At least one number
+		String regexPattern = "^((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,20})$";
         Pattern pattern = Pattern.compile(regexPattern);
 
         if (password == null) {
