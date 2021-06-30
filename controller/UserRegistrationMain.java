@@ -30,6 +30,9 @@ public class UserRegistrationMain {
 		System.out.println("Enter Mobile No : ");
 		userDetails.setMob_No(sc.next());
 		
+		System.out.println("Enter Password : ");
+		userDetails.setPassword(sc.next());
+		
 		validatedUserDetails(userDetails);
 	}
 /**
@@ -72,6 +75,13 @@ public class UserRegistrationMain {
 		}
 		else {
 			System.out.println("Invalid Mobile Number");
+		}
+		
+		if(service.validatePassword(userDeatils.getPassword())) {
+			System.out.println("Password is Valid");
+		}
+		else {
+			System.out.println("Invalid Password");
 		}
 	}
 	
