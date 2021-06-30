@@ -27,6 +27,9 @@ public class UserRegistrationMain {
 		System.out.println("Enter E-mail Id : ");
 		userDetails.setEmailId(sc.next());
 		
+		System.out.println("Enter Mobile No : ");
+		userDetails.setMob_No(sc.next());
+		
 		validatedUserDetails(userDetails);
 	}
 /**
@@ -62,6 +65,13 @@ public class UserRegistrationMain {
 		}
 		else {
 			System.out.println("Invalid Email Id");
+		}
+		
+		if(service.validateMobNo(userDeatils.getMob_No())) {
+			System.out.println("Mobile Number is Valid");
+		}
+		else {
+			System.out.println("Invalid Mobile Number");
 		}
 	}
 	
