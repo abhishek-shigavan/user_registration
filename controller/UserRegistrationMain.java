@@ -24,6 +24,9 @@ public class UserRegistrationMain {
 		System.out.println("Enter Last Name : ");
 		userDetails.setL_Name(sc.next());
 		
+		System.out.println("Enter E-mail Id : ");
+		userDetails.setEmailId(sc.next());
+		
 		validatedUserDetails(userDetails);
 	}
 /**
@@ -52,6 +55,13 @@ public class UserRegistrationMain {
 		}
 		else {
 			System.out.println("Invalid Last Name");
+		}
+		
+		if(service.validateEmailId(userDeatils.getEmailId())) {
+			System.out.println("Email Id is Valid");
+		}
+		else {
+			System.out.println("Invalid Email Id");
 		}
 	}
 	
