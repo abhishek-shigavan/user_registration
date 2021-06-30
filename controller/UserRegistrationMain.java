@@ -21,6 +21,9 @@ public class UserRegistrationMain {
 		System.out.println("Enter First Name : ");
 		userDetails.setF_Name(sc.next());
 		
+		System.out.println("Enter Last Name : ");
+		userDetails.setL_Name(sc.next());
+		
 		validatedUserDetails(userDetails);
 	}
 /**
@@ -42,6 +45,13 @@ public class UserRegistrationMain {
 		else {
 			
 			System.out.println("Invalid First Name");
+		}
+		
+		if(service.validateLastName(userDeatils.getL_Name())) {
+			System.out.println("Last Name is Valid");
+		}
+		else {
+			System.out.println("Invalid Last Name");
 		}
 	}
 	
