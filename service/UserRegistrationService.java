@@ -35,4 +35,29 @@ public class UserRegistrationService {
 
 		return flag;
 	}
+/**
+ * This method validates last name
+ * 	
+ * @param Last Name
+ * @return true / false
+ */
+	public boolean validateLastName(String l_Name) {
+		
+		boolean flag = false;
+		
+		//first letter compulsory capital and 
+		//should have minimum 3 letters
+        String regexPattern = "^[A-Z][a-z]{2,}";
+        Pattern pattern = Pattern.compile(regexPattern);
+
+        if (l_Name == null) {
+            return flag;
+        }
+
+        Matcher match = pattern.matcher(l_Name);
+
+        flag = match.matches();
+
+		return flag;
+	}
 }
