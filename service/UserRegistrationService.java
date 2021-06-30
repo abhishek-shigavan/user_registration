@@ -126,7 +126,7 @@ public class UserRegistrationService {
 		//At least one upper case character
 		//At least one number
 		//At least one special character
-		String regexPattern = "^((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\\\S+$).{8,20})$";
+		String regexPattern = "^(?=.*[0-9])" + "(?=.*[a-z])(?=.*[A-Z])" + "(?=.*[@#$%^&+=])" + "(?=\\S+$).{8,}$";
         Pattern pattern = Pattern.compile(regexPattern);
 
         if (password == null) {
