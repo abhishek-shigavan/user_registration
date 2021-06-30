@@ -60,4 +60,25 @@ public class UserRegistrationService {
 
 		return flag;
 	}
+	
+	public boolean validateEmailId(String emailId) {
+		
+		boolean flag = false;
+		
+		//Username is compulsory before @ can have Username with ._- in between / without it
+		//@ domain name compulsory
+		//after domain one tld is compulsory another one is optional
+		String regexPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@([a-z0-9]{3,12})\\.([a-z]{2,6})(\\.[a-z]{2,3})?$";
+		Pattern pattern = Pattern.compile(regexPattern);
+
+			if (emailId == null) {
+	            return flag;
+	        }
+
+	        Matcher match = pattern.matcher(emailId);
+
+	        flag = match.matches();
+
+			return flag;
+	}
 }
