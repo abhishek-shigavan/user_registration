@@ -11,15 +11,17 @@ public class UserRegistration {
 	//UserRegistration Fields
 	private String f_Name;
 	private String l_Name;
+	private String emailId;
 	
 	public UserRegistration() {
 		
 	}
 
-	public UserRegistration(String f_Name, String l_Name) {
+	public UserRegistration(String f_Name, String l_Name, String emailId) {
 		
 		this.f_Name = f_Name;
 		this.l_Name = l_Name;
+		this.emailId = emailId;
 	}
 
 	public String getF_Name() {
@@ -37,5 +39,12 @@ public class UserRegistration {
 	public void setL_Name(String l_Name) {
 		this.l_Name = l_Name;
 	}
-	
+
+	public String getEmailId() {
+		return emailId;
+	}
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
 }
