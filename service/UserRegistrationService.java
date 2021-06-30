@@ -111,5 +111,29 @@ public class UserRegistrationService {
 
         return flag;
     }
+/**
+ * This method validates password
+ * 
+ * @param password
+ * @return true / false
+ */
+	public boolean validatePassword(String password) {
+		
+		boolean flag = false;
+		
+		//password contains minimum 8 character
+		String regexPattern = "^[a-zA-Z0-9]{8,}";
+        Pattern pattern = Pattern.compile(regexPattern);
+
+        if (password == null) {
+            return flag;
+        }
+
+        Matcher match = pattern.matcher(password);
+
+        flag = match.matches();
+		
+		return flag;
+	}
 	
 }
