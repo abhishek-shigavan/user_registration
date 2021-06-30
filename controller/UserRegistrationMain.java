@@ -1,12 +1,15 @@
 package com.userregistration.controller;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import com.userregistration.model.UserRegistration;
 import com.userregistration.service.UserRegistrationService;
 
-public class UserRegistrationMain {
+public class UserRegistrationMain extends UserRegistrationService {
 	
 	static Scanner sc = new Scanner(System.in);
+	static UserRegistrationService service = new UserRegistrationService();
+	
 /**
  * This method get registration field details
  * from user & set the field properties
@@ -44,8 +47,6 @@ public class UserRegistrationMain {
  */
 	public static void validatedUserDetails(UserRegistration userDeatils) {
 		
-		UserRegistrationService service = new UserRegistrationService();
-		
 		//passing field details to validate
 		if(service.validateFirstName(userDeatils.getF_Name())) {
 			
@@ -78,15 +79,61 @@ public class UserRegistrationMain {
 		}
 		
 		if(service.validatePassword(userDeatils.getPassword())) {
-			System.out.println("Password is Valid");
+			System.out.println("Password is Valid\n");
 		}
 		else {
-			System.out.println("Invalid Password");
+			System.out.println("Invalid Password\n");
 		}
+	}
+/**
+ * This methods stores multiple Email Id is ArrayList
+ * & validates all the Email Id
+ * 
+ *  @return No return	
+ */
+	public static void multipleEmailValidator() {
+		
+		 ArrayList<String> emailList = new ArrayList<>();
+		 //valid Email Id
+		 emailList.add("abc-100@yahoo.com");
+		 emailList.add("abc.100@yahoo.com");
+		 emailList.add("abc111@abc.com");
+		 emailList.add("abc@yahoo.com");
+		 emailList.add("abc-100@abc.net");
+		 emailList.add("abc.100@abc.com.au");
+		 emailList.add("abc@gmail.com.com");
+		 emailList.add("abc+100@gmail.com");
+		 //Invalid Email Id
+		 emailList.add("abc");
+		 emailList.add("abc@.com.my");
+		 emailList.add("abc123@gmail.a");
+		 emailList.add("abc123@.com");
+		 emailList.add("abc123@.com.com");
+		 emailList.add(".abc@abc.com");
+		 emailList.add("abc()*@gmail.com");
+		 emailList.add("abc..2002@gmail.com");
+		 emailList.add("abc@%*.com");
+		 emailList.add("abc.@gmail.com");
+		 emailList.add("abc@abc@gmail.com");
+		 emailList.add("abc@gmail.com.1a");
+		 emailList.add("abc@gmail.com.aa.au");
+		 
+		 for (String email : emailList) {
+			 
+			 boolean flag = service.validateEmailId(email);
+			 
+			 if(flag) {
+				 System.out.println(email + " is Valid Email Id\n");
+			 }
+			 else {
+				 System.out.println(email + " is In-Valid Email Id\n"); 
+			 }
+		 }
 	}
 	
 	public static void main(String[] args) {
 		
 		getUserDetails();
+		multipleEmailValidator();
 	}
 }
