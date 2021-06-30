@@ -60,7 +60,12 @@ public class UserRegistrationService {
 
 		return flag;
 	}
-	
+/**
+ * This method validates Email Id
+ * 	
+ * @param emailId
+ * @return true / false
+ */
 	public boolean validateEmailId(String emailId) {
 		
 		boolean flag = false;
@@ -81,4 +86,30 @@ public class UserRegistrationService {
 
 			return flag;
 	}
+/**
+ * This method validates mobile number
+ * 	
+ * @param mob_No
+ * @return true / false
+ */
+	public boolean validateMobNo(String mob_No) {
+        boolean flag = false;
+
+        //country code is optional
+        //if given then have to give space after country code
+        //mobile no must be 10 digits
+        String regexPattern = "(0\s|91\s)?[1-9][0-9]{9}";
+        Pattern pattern = Pattern.compile(regexPattern);
+
+        if (mob_No == null) {
+            return flag;
+        }
+
+        Matcher match = pattern.matcher(mob_No);
+
+        flag = match.matches();
+
+        return flag;
+    }
+	
 }
